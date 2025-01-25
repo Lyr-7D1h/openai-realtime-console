@@ -1,35 +1,28 @@
-# OpenAI Realtime Console
+# OpenAI Realtime Console Desktop Hack
 
-This is an example application showing how to use the [OpenAI Realtime API](https://platform.openai.com/docs/guides/realtime) with [WebRTC](https://platform.openai.com/docs/guides/realtime-webrtc).
+A super hacky way to get to talk to openai advanced voice on your desktop using a modified version of [Openai Realtime Console](https://github.com/openai/openai-realtime-console)
 
-## Installation and usage
+This run the application in the background when starting the command and runs the react app in a headless browser so you don't need to open it yourself but you can start talking to the advanced voice
 
-Before you begin, you'll need an OpenAI API key - [create one in the dashboard here](https://platform.openai.com/settings/api-keys). Create a `.env` file from the example file and set your API key in there:
+# Install
 
-```bash
-cp .env.example .env
+
+# Usage
+
+Run an advanced voice session and start listening
+
+```sh
+OPENAI_API_KEY='<your key>' ./openai-voice
 ```
 
-Running this application locally requires [Node.js](https://nodejs.org/) to be installed. Install dependencies for the application with:
+To stop the session run
 
-```bash
-npm install
+```sh
+./openai-voice stop
 ```
 
-Start the application server with:
+# Keybinds 
 
-```bash
-npm run dev
-```
+## Gnome
 
-This should start the console application on [http://localhost:3000](http://localhost:3000).
-
-_Note:_ The `server.js` file uses [@fastify/vite](https://fastify-vite.dev/) to build and serve the Astro frontend contained in the `/client` folder. You can find the configuration in the [`vite.config.js` file](./vite.config.js)
-
-## Previous WebSockets version
-
-The previous version of this application that used WebSockets on the client (not recommended in client-side browsers) [can be found here](https://github.com/openai/openai-realtime-console/tree/websockets).
-
-## License
-
-MIT
+I have a keybind for both starting and stopping 

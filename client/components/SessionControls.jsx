@@ -75,16 +75,12 @@ export default function SessionControls({
 }) {
   return (
     <div className="flex gap-4 border-t-2 border-gray-200 h-full rounded-md">
-      {isSessionActive ? (
-        <SessionActive
-          stopSession={stopSession}
-          sendClientEvent={sendClientEvent}
-          sendTextMessage={sendTextMessage}
-          serverEvents={serverEvents}
-        />
-      ) : (
-        <SessionStopped startSession={startSession} />
-      )}
+      <SessionActive
+        stopSession={stopSession}
+        sendClientEvent={sendClientEvent}
+        sendTextMessage={sendTextMessage}
+        serverEvents={serverEvents}
+      />
     </div>
   );
 }

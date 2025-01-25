@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -e
+
+PROJECT_URL="https://github.com/Lyr-7D1h/openai-realtime-console"
+PROJECT_PATH="$HOME/.local/share/openai-realtime-console"
+PID_FILE="/tmp/openai-realtime-console.pid"
+
+if [[ "$1" == "update" ]]; then
+  if [ -d "$PROJECT_PATH" ]; then
+    cd "$PROJECT_PATH"
+    git pull
+    npm install
+  else 
+    git clone $PROJECT_URL "$PROJECT_PATH"
+    cd "$PROJECT_PATH"
+    npm install
+  fi
+  exit 0
+fi
+
+if [[ "$1" == "stop" ]]; then
+  if [ -f $PID_FILE ]; then
+    kill -TERM -"$(cat $PID_FILE)"
+    rm $PID_FILE
+  fi
+  exit 0
+fi
+
+if [ -z "$OPENAI_API_KEY" ]; then
+  echo "Please set the environment variable OPENAI_API_KEY"
+  exit 1
+fi
+
+cd "$(dirname "$0")"
+
+setsid bash -c "npm run dev & chromium --headless --use-fake-ui-for-media-stream --enable-usermedia-screen-capturing --remote-debugging-port=9222 http://localhost:3000" &
+echo $! > $PID_FILE

@@ -107,6 +107,11 @@ export default function App() {
     sendClientEvent({ type: "response.create" });
   }
 
+  useEffect(() => {
+    console.log("asdf");
+    startSession();
+  }, []);
+
   // Attach event listeners to the data channel when a new one is created
   useEffect(() => {
     if (dataChannel) {
