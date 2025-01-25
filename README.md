@@ -6,6 +6,14 @@ This run the application in the background when starting the command and runs th
 
 # Install
 
+```sh
+# Download
+curl https://raw.githubusercontent.com/lyr-7d1h/openai-realtime-console/master/openai-voice > openai-voice
+chmod +x openai-voice
+
+# Update to latest version
+openai-voice update
+```
 
 # Usage
 
@@ -21,8 +29,8 @@ To stop the session run
 ./openai-voice stop
 ```
 
-# Keybinds 
+# Keybinding 
 
-## Gnome
+I have a keybind for both starting and stopping using these commands.
 
-I have a keybind for both starting and stopping 
+You can [set custom keybinds on gnome](https://help.gnome.org/users/gnome-help/stable/keyboard-shortcuts-set.html.en)

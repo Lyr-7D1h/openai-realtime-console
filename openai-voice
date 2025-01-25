@@ -32,7 +32,7 @@ if [ -z "$OPENAI_API_KEY" ]; then
   exit 1
 fi
 
-cd "$(dirname "$0")"
+cd "$PROJECT_PATH"
 
 setsid bash -c "npm run dev & chromium --headless --use-fake-ui-for-media-stream --enable-usermedia-screen-capturing --remote-debugging-port=9222 http://localhost:3000" &
 echo $! > $PID_FILE
