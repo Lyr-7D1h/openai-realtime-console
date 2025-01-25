@@ -32,6 +32,11 @@ if [ -z "$OPENAI_API_KEY" ]; then
   exit 1
 fi
 
+if [ -f "$PID_FILE" ]; then
+  echo "Already running use 'openai-voice stop' to stop the current running instance"
+  exit 1
+fi
+
 cd "$PROJECT_PATH"
 
 setsid bash -c "npm run dev & chromium --headless --use-fake-ui-for-media-stream --enable-usermedia-screen-capturing --remote-debugging-port=9222 http://localhost:3000" &
