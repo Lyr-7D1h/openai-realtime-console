@@ -34,3 +34,4 @@ To stop the session run
 I have a keybind for both starting and stopping using these commands.
 
 You can [set custom keybinds on gnome](https://help.gnome.org/users/gnome-help/stable/keyboard-shortcuts-set.html.en)
+Set the keybind to start it to `env OPENAI_API_KEY=<openapi-key> <path to openai-voice>`
